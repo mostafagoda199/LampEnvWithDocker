@@ -6,6 +6,7 @@
     git clone https://github.com/mostafagoda199/LampEnvWithDocker.git
 
 # Repair your env
+    make dir with name www
     rename .env-sample to .env
     rename docker-compose-sample.yml to docker-compose.yml
 
