@@ -13,7 +13,7 @@
     run "docker compose up -d" 
 
 # Rebuild docker images
-    run "docker compose up -d --no-deps build" 
+    run "docker compose up -d --no-deps --build" 
 
 # Down docker images
     sudo docker-compose down
