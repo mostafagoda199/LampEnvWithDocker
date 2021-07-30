@@ -103,9 +103,22 @@ RUN adduser --disabled-password --gecos '' mustafa \
     && adduser mustafa sudo \
     && echo '%sudo ALL=(ALL:ALL) ALL' >> /etc/sudoers
 
+RUN apt-get update && apt-get install -y curl
+RUN apt-get update -yq \
+    && apt-get -yq install curl gnupg ca-certificates \
+    && curl -L https://deb.nodesource.com/setup_16.x | bash \
+    && apt-get update -yq \
+    && apt-get install -yq \
+        dh-autoreconf=19 \
+        ruby=1:2.5.* \
+        ruby-dev=1:2.5.* \
+        nodejs
+
 RUN chown mustafa /var/www/html
 USER mustafa
 
-#WORKDIR /var/www/html
+
+RUN chown mustafa /var/www/html
+USER mustafa
 
 #RUN composer create-project laravel/laravel .
